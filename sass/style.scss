@@ -1,0 +1,117 @@
+// ==== var-colors ==== //
+
+$bright-orange: hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+$transparent-white: hsla(0, 0%, 100%, 0.75); 
+// paragraphs
+$very-light-gray: hsl(0, 0%, 95%); 
+// background, headings, buttons
+
+// ==== globals ==== //
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 93.75%;
+}
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: $very-light-gray;
+}
+
+// ==== globals ==== //
+
+// ==== card-styles ==== //
+.cards {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2em;
+    color: $transparent-white;
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        max-width: 375px;
+        height: 400px;
+        padding: 2em;
+        &--first {
+            border-radius: 10px 10px 0 0;
+            background-color: $bright-orange;
+            button {
+                color: $bright-orange;
+            }
+        }
+        &--second {
+            background-color: $dark-cyan;
+            button {
+                color: $dark-cyan;
+            }
+        }
+        &--third {
+            border-radius: 0 0 10px 10px;
+            background-color: $very-dark-cyan;
+            button {
+                color: $very-dark-cyan;
+            }
+        }
+        &-heading {
+            font-family: 'Big Shoulders Display', cursive;
+            font-size: 2.5rem;
+        }
+        &-btn {
+            width: 60%;
+            padding: 1em 0;
+            border-radius: 20px;
+            border: none;
+            font-weight: bold;
+            border: 2px solid transparent;
+            &:hover {
+                border-color: $transparent-white;
+                color: $transparent-white;
+                background: none;
+            }
+        }
+    }
+}
+
+// ==== media ==== //
+
+@media(min-width: 756px) {
+    .wrapper {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        height: 100%;
+        width: 100%;
+        transform: translate(-50%,-50%);
+    }
+    .cards {
+        flex-direction: row;
+        max-width: 992px;
+        &__item {
+            height: 500px;
+            justify-content: space-evenly;
+            &--first {
+                border-radius: 10px 0 0 10px;
+            }
+            &--third {
+                border-radius: 0 10px 10px 0;
+            }
+            
+        }
+    }
+    
+}
